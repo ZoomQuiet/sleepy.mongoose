@@ -157,9 +157,11 @@ class MongoHandler:
         if "server" in args:
             try:
                 uri = args.getvalue('server')
-                info = connection._parse_uri(uri)
+                #info = connection._parse_uri(uri)
+                info = connection.uri_parser.parse_uri(uri)
             except Exception, e:
                 print uri
+                print info
                 print e
                 out('{"ok" : 0, "errmsg" : "invalid server uri given", "server" : "%s"}' % uri)
                 return
