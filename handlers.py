@@ -158,6 +158,7 @@ class MongoHandler:
             try:
                 uri = args.getvalue('server')
                 #info = connection._parse_uri(uri)
+                #fixed 4 https://github.com/kchodorow/sleepy.mongoose/issues/20
                 info = connection.uri_parser.parse_uri(uri)
             except Exception, e:
                 print uri
